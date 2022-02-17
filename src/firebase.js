@@ -7,12 +7,12 @@ const firebaseAPIKey = process.env.REACT_APP_FIRE_API_KEY
 
 const firebaseConfig = {
   apiKey: "firebaseAPIKey",
-  authDomain: "brogey-7fb3a.firebaseapp.com",
-  projectId: "brogey-7fb3a",
-  storageBucket: "brogey-7fb3a.appspot.com",
-  messagingSenderId: "399353807646",
-  appId: "1:399353807646:web:cc92cb7bd1ed159f2ebf0f",
-  measurementId: "G-GG0ENYJVBD"
+  authDomain: "secret",
+  projectId: "secret",
+  storageBucket: "secret",
+  messagingSenderId: "secret",
+  appId: "secret",
+  measurementId: "secret"
 };
 
 const app = initializeApp(firebaseConfig);
