@@ -7,7 +7,7 @@ export const LoginScreen = () => {
   const navigate = useNavigate();
   
   return (
-    <div className='body--container'>
+    <div className='signin--container'>
       <button 
         onClick={async () => {
           await signInWithGoogle();
