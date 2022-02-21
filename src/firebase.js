@@ -1,12 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
-// import { signInWithPopup, GoogleAuthProvider, getAuth } from 'firebase/auth';
 
 const firebaseAPIKey = process.env.REACT_APP_FIRE_API_KEY
 
 const firebaseConfig = {
-  apiKey: "firebaseAPIKey",
+  apiKey: `${firebaseAPIKey}`,
   authDomain: "brogey-7fb3a.firebaseapp.com",
   projectId: "brogey-7fb3a",
   storageBucket: "brogey-7fb3a.appspot.com",
@@ -18,15 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-// export const signInWithGoogle = () => {
-//   const provider = new GoogleAuthProvider();
-//   signInWithPopup(auth, provider)
-//   .then(res => {
-//     console.log(res);
-//   })
-//   .catch(err => {
-//     alert(err)
-//   })
-// };
 
 export { auth, db };

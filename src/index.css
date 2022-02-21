@@ -1,19 +1,57 @@
-body {
+html, body {
   margin: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
 .nav--container {
   margin: 0;
-  width: 100%;
-  color: white;
+  width: 100vw;
+  background: white;
   font-weight: 700;
   padding: 5px 20px;
-  font-family: 'Inter', sans-serif;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  position: absolute;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
 }
 
 .nav--container > img {
-  width: 150px;
+  width: 140px;
+}
+
+.nav--links {
+  margin-left: auto;
+  padding-right: 50px;
+}
+
+.nav--logout {
+  padding-left: 25px;
+}
+
+.body--container{
+  margin: 0;
+  background-color: rgba(0,0,0,.06);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google--signin {
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.google--signin:hover {
+  cursor: pointer;
+}
+
+.google--img {
+  width: 20px;
+  padding: 3px 5px 3px 3px;
 }

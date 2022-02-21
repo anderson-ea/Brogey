@@ -2,6 +2,6 @@ import React from 'react'
 
 export const ViewProfiles = () => {
   return (
-    <div>ViewProfiles</div>
+    <div className='body--container'>ViewProfiles</div>
   )
 }

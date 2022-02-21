@@ -1,13 +1,14 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithPopup, signOut } from "@firebase/auth";
-import { auth } from '../firebase';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithPopup, signOut } from "@firebase/auth"
+import { auth } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext({})
 
-const config = {
-  scope: ["profile", "email"],
-  permissions: ["public_profile", "email", "gender", "location"],
-};
+// const config = {
+//   scope: ["profile", "email"],
+//   permissions: ["public_profile", "email", "gender", "location"],
+// };
 
 export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
@@ -15,42 +16,36 @@ export const AuthProvider = ({ children }) => {
   const [loadingInitial, setLoadingInitial] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  useEffect(
-    () => 
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // logged in
-          setUser(user);
-        } else {
-          // not logged in
-          setUser(null);
-        }
-      
-        setLoadingInitial(false)
-      }), 
-    []
-  );
+  // if user is logged in or not
+  useEffect(() => onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    } setLoadingInitial(false)
+    }), []
+  )
+
   const logout = () => {
-    setLoading(true);
+    setLoading(true)
     signOut(auth)
-      .catch((error) => setError(error))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  };
+  }
 
-  const signInWithGoogle = () => {
-    setLoading(true);
-
-    signInWithPopup(config).then(async (logInResult) => {
-      if (logInResult.type === "success") {
-        const { idToken, accessToken } = logInResult;
-        const credential = GoogleAuthProvider.credential(idToken, accessToken);
-
-        await signInWithCredential(auth, credential);
-      }
-      return Promise.reject();
-    })
-    .catch(error => setError(error))
-    .finally(() => setLoading(false));
+  const signInWithGoogle = async () => {
+    setLoading(true)
+    const provider = new GoogleAuthProvider()
+    await signInWithPopup(auth, provider).then(async (res) => {
+      // const name = res.user.displayName
+      // const email = res.user.email
+      // const profilePic = res.user.photoURL
+      const { idToken, accessToken } = res
+      const credential = GoogleAuthProvider.credential(idToken, accessToken)
+      await signInWithCredential(auth, credential)
+    }).catch(err => {
+      setError(err)
+    }).finally(() => setLoading(false))
   };
 
   const memoedValue = useMemo(() => ({
@@ -65,9 +60,9 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={memoedValue}>
       {!loadingInitial && children}
     </AuthContext.Provider>
-  );
-};
+  )
+}
 
 export default function useAuth() {
-  return useContext(AuthContext);
+  return useContext(AuthContext)
 }
