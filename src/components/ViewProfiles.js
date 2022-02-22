@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { ProfileCard } from './ProfileCard';
 
 const dummy = [
@@ -18,7 +18,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 45,
-    id: 456,
+    id: 486,
   },
   {
     fullName: "Eric 2",
@@ -27,7 +27,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 32,
-    id: 123,
+    id: 103,
   },
   {
     fullName: "Tiger Woods asdfasdfasdfasfd",
@@ -36,7 +36,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 45,
-    id: 456,
+    id: 356,
   },
   {
     fullName: "Eric 3",
@@ -45,7 +45,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 32,
-    id: 123,
+    id: 23,
   },
   {
     fullName: "Tiger 3",
@@ -54,7 +54,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 45,
-    id: 456,
+    id: 46,
   },
   {
     fullName: "Tiger asdf",
@@ -63,7 +63,7 @@ const dummy = [
     drinking: true,
     walking: false,
     age: 45,
-    id: 456,
+    id: 466,
   },
 ]
 
@@ -90,17 +90,48 @@ const SearchBar = () => (
 const profilesMapped = dummy.map(item => {
   return (
     <ProfileCard 
+      key={item.id}
       data={item}
     />
   )
 })
 
 export const ViewProfiles = () => {
+  const [isMoved, setIsMoved] = useState(false)
+  const [index, setIndex] = useState(0);
+  const slideRef = useRef();
+
+  const slideClick = async (direction) => {
+    setIsMoved(true)
+    let distance = slideRef.current.getBoundingClientRect().x - 50
+    if (direction === "left" && index > 0) {
+      setIndex(prevIndex => prevIndex - 1)
+      slideRef.current.style.transform = `translateX(${285 + distance}px)`
+    } else if (direction === "right" && index < profilesMapped.length - 1) {
+      setIndex(prevIndex => prevIndex + 1)
+      slideRef.current.style.transform = `translateX(${-285 + distance}px)`
+    }
+  }
+
   return (
     <div className='profiles--main'>
       <SearchBar />
-      <div className="profiles--container">
-        {profilesMapped}
+      <div className='profiles--wrapper'>
+        {!isMoved ? null : <img 
+          src={require("../images/arrow.png")}
+          alt='back arrow' 
+          className='back-arrow'
+          onClick={() => slideClick("left")} 
+        />}
+        <div className="profiles--container" ref={slideRef} >
+          {profilesMapped}
+        </div>
+        <img 
+          src={require("../images/arrow.png")}
+          alt='fwd arrow'
+          className='fwd-arrow'
+          onClick={() => slideClick("right")} 
+        />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 html, body {
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
 
@@ -12,7 +12,6 @@ html, body {
   padding: 5px 20px;
   display: flex;
   align-items: center;
-  /* position: absolute; */
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
 }
 
@@ -45,9 +44,6 @@ html, body {
   align-items: center;
   border-radius: 5px;
   font-weight: bold;
-}
-
-.google--signin:hover {
   cursor: pointer;
 }
 
@@ -100,21 +96,30 @@ html, body {
   height: 95.2vh;
 }
 
+.profiles--wrapper {
+  display: flex;
+  height: 300px;
+  align-items: center;
+  position: relative;
+}
+
 .profiles--container {
-  border: solid;
-  margin: auto auto auto auto;
-  height: 50vh;
-  width: 90vw;
+  overflow: hidden;
+  margin: auto auto auto 50px;
+  height: 500px;
+  width: max-content;
   display: flex;
   align-items: flex-start;
   justify-content: start;
+  transform: translateX(0px);
+  transition: all .5s ease;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  margin: 20px 20px 0px 20px;
-  max-width: 250px;
+  margin: 20px 0px 0px 20px;
+  max-width: 265px;
 }
 
 .card--name--container {
@@ -147,8 +152,33 @@ html, body {
 }
 
 .card--image {
-  width: 250px;
-  height: 250px;
+  width: 265px;
+  height: 265px;
   border-radius: 10px;
   margin: 0;
+}
+
+.back-arrow {
+  position: absolute;
+  cursor: pointer;
+  width: 50px;
+  height: 70px;
+  left: 0;
+  padding: 10px 0px 10px 0px;
+  margin-right: auto;
+  background-color: rgba(45, 207, 12, 0.4);
+  z-index: 99;
+}
+
+.fwd-arrow {
+  position: absolute;
+  cursor: pointer;
+  width: 45px;
+  height: 70px;
+  right: 0;
+  padding: 10px 0px 10px 0px;
+  margin-left: auto;
+  background-color: rgba(45, 207, 12, 0.4);
+  z-index: 99;
+  transform: rotate(180deg);
 }
