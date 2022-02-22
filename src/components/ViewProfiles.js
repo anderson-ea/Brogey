@@ -1,4 +1,5 @@
 import React from 'react'
+import { ProfileCard } from './ProfileCard';
 
 const dummy = [
   {
@@ -11,7 +12,7 @@ const dummy = [
     id: 123,
   },
   {
-    firstName: "Tiger Woods",
+    fullName: "Tiger Woods",
     job: "Pro Golfer",
     photoURL: "https://i.imgur.com/C4FkYKT.jpeg",
     drinking: true,
@@ -29,7 +30,7 @@ const dummy = [
     id: 123,
   },
   {
-    firstName: "Tiger Woods 2",
+    fullName: "Tiger Woods asdfasdfasdfasfd",
     job: "Pro Golfer",
     photoURL: "https://i.imgur.com/C4FkYKT.jpeg",
     drinking: true,
@@ -47,7 +48,16 @@ const dummy = [
     id: 123,
   },
   {
-    firstName: "Tiger 3",
+    fullName: "Tiger 3",
+    job: "Pro Golfer",
+    photoURL: "https://i.imgur.com/C4FkYKT.jpeg",
+    drinking: true,
+    walking: false,
+    age: 45,
+    id: 456,
+  },
+  {
+    fullName: "Tiger asdf",
     job: "Pro Golfer",
     photoURL: "https://i.imgur.com/C4FkYKT.jpeg",
     drinking: true,
@@ -71,18 +81,26 @@ const SearchBar = () => (
         <img 
           alt="search" 
           src={require("../images/search.png")} 
-          className="search--img"/>
+          className="search--icon"/>
       </button>
     </div>
   </form>
 );
+
+const profilesMapped = dummy.map(item => {
+  return (
+    <ProfileCard 
+      data={item}
+    />
+  )
+})
 
 export const ViewProfiles = () => {
   return (
     <div className='profiles--main'>
       <SearchBar />
       <div className="profiles--container">
-        main content
+        {profilesMapped}
       </div>
     </div>
   )

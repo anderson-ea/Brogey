@@ -78,7 +78,7 @@ html, body {
   background: transparent;
   margin-left: auto;
   margin-right: 10px;
-  padding-right: 30px;
+  padding-right: 35px;
   width: 30px;
   height: 30px;
   border: none;
@@ -88,7 +88,7 @@ html, body {
   cursor: pointer;
 }
 
-.search--img {
+.search--icon {
   border: none;
   background: transparent;
   width: 30px; 
@@ -97,6 +97,7 @@ html, body {
 .profiles--main {
   background-color: rgba(0,0,0,.06);
   overflow-y: auto;
+  height: 95.2vh;
 }
 
 .profiles--container {
@@ -105,7 +106,49 @@ html, body {
   height: 50vh;
   width: 90vw;
   display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.card {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 20px 20px 0px 20px;
+  max-width: 250px;
+}
+
+.card--name--container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.card--name {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0 0;
+  align-items: start;
+  max-width: 180px;
+}
+
+.card--name > h3 {
+  margin: 0;
+}
+
+.card--name--container > h2 {
+  margin: 10px 0 0 0;
+}
+
+.card--name > p {
+  font-style: italic;
+  font-size: 12px;
+  margin: 0;
+}
+
+.card--image {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin: 0;
 }
