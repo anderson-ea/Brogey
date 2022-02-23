@@ -7,12 +7,12 @@ html, body {
 .nav--container {
   margin: 0;
   width: 100vw;
-  background: white;
+  background: rgba(255, 255, 255, 1);
   font-weight: 700;
   padding: 5px 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 2px -2px rgba(0,0,0,.3);
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.5);
 }
 
 .nav--container > img {
@@ -58,7 +58,7 @@ html, body {
   height: 40px;
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 100px;
 }
 
@@ -119,10 +119,11 @@ html, body {
   display: flex;
   flex-direction: column;
   margin: 20px 0px 0px 20px;
-  max-width: 265px;
-  border: solid rgb(5, 80, 5);
+  max-width: 285px;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 13px;
-  height: 420px;
+  height: 440px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.2)
 }
 
 .card--name--container {
@@ -147,7 +148,7 @@ html, body {
 
 .card--name > p, li {
   font-style: italic;
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
 }
 
@@ -156,7 +157,8 @@ html, body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  height: 167px;
+  height: 140px;
+  max-width: 140px;
 }
 
 .card--age--wrapper > h2 {
@@ -164,13 +166,18 @@ html, body {
   font-size: 32px;
 }
 
+.card--age--wrapper > h3 {
+  margin: 0;
+}
+
 ul {
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 .card--image {
-  width: 265px;
-  height: 265px;
+  width: 285px;
+  height: 285px;
+  object-fit: cover;
   border-radius: 10px 10px 0 0;
   margin: 0;
   cursor: pointer;
@@ -184,19 +191,19 @@ ul {
   left: 0;
   padding: 10px 0px 10px 0px;
   margin-right: auto;
-  background-color: rgba(45, 207, 12, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   z-index: 99;
 }
 
 .fwd-arrow {
   position: absolute;
   cursor: pointer;
-  width: 41px;
+  width: 50px;
   height: 70px;
   right: 0;
   padding: 10px 0px 10px 0px;
   margin-left: auto;
-  background-color: rgba(45, 207, 12, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   z-index: 99;
   transform: rotate(180deg);
 }

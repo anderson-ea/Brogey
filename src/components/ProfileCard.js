@@ -1,12 +1,17 @@
 import React from 'react'
 
 export const ProfileCard = (props) => {
+  const imageClick = () => {
+    console.log("hello")
+  }
+
   return (
     <div className='card'>
       <img 
         src={props.data.photoURL} 
         className='card--image' 
         alt='profile pic'
+        onClick={imageClick}
       />
       <div className='card--name--container'>
         <div className='card--name'>
