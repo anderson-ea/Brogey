@@ -117,13 +117,13 @@ export const ViewProfiles = () => {
 
   const slideClick = async (direction) => {
     setIsMoved(true)
-    let distance = slideRef.current.getBoundingClientRect().x - 53
+    let distance = slideRef.current.getBoundingClientRect().x - 50
     if (direction === "left" && index > 0) {
       setIndex(prevIndex => prevIndex - 1)
-      slideRef.current.style.transform = `translateX(${285 + distance}px)`
+      slideRef.current.style.transform = `translateX(${288 + distance}px)`
     } else if (direction === "right" && index < profilesMapped.length - 1) {
       setIndex(prevIndex => prevIndex + 1)
-      slideRef.current.style.transform = `translateX(${-285 + distance}px)`
+      slideRef.current.style.transform = `translateX(${-288 + distance}px)`
     }
   }
 

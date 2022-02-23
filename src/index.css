@@ -94,6 +94,7 @@ html, body {
   background-color: rgba(0,0,0,.06);
   overflow-y: auto;
   height: 95.2vh;
+  overflow: hidden;
 }
 
 .profiles--wrapper {
@@ -104,10 +105,9 @@ html, body {
 }
 
 .profiles--container {
-  overflow: hidden;
   margin: auto auto auto 50px;
   height: 500px;
-  width: 100%;
+  width: max-content;
   display: flex;
   align-items: flex-start;
   justify-content: start;
@@ -191,7 +191,7 @@ ul {
 .fwd-arrow {
   position: absolute;
   cursor: pointer;
-  width: 45px;
+  width: 41px;
   height: 70px;
   right: 0;
   padding: 10px 0px 10px 0px;
