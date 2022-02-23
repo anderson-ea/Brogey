@@ -10,10 +10,18 @@ export const ProfileCard = (props) => {
       />
       <div className='card--name--container'>
         <div className='card--name'>
-          <h3>{props.data.fullName}</h3>
+          <h3 className='card--person--name'>{props.data.fullName}</h3>
           <p>{props.data.job}</p>
+          <ul>
+            <li>Handicap +{props.data.handicap}</li>
+            <li>{props.data.drinking ? "Drinker" : "Doesn't Drink"}</li>
+            <li>{props.data.walking ? "Cart" : "Walk"}</li>
+          </ul>
         </div>
-        <h2>{props.data.age}</h2>
+        <div className='card--age--wrapper'>
+          <h2>{props.data.age}</h2>
+          <h3>{props.data.city}</h3>
+        </div>
       </div>
     </div>
   )

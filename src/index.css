@@ -107,7 +107,7 @@ html, body {
   overflow: hidden;
   margin: auto auto auto 50px;
   height: 500px;
-  width: max-content;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: start;
@@ -120,6 +120,9 @@ html, body {
   flex-direction: column;
   margin: 20px 0px 0px 20px;
   max-width: 265px;
+  border: solid rgb(5, 80, 5);
+  border-radius: 13px;
+  height: 420px;
 }
 
 .card--name--container {
@@ -127,6 +130,7 @@ html, body {
   justify-content: space-between;
   margin: 0;
   align-items: flex-start;
+  padding: 5px;
 }
 
 .card--name {
@@ -137,25 +141,39 @@ html, body {
   max-width: 180px;
 }
 
-.card--name > h3 {
+.card--person--name {
   margin: 0;
 }
 
-.card--name--container > h2 {
-  margin: 10px 0 0 0;
-}
-
-.card--name > p {
+.card--name > p, li {
   font-style: italic;
   font-size: 12px;
   margin: 0;
 }
 
+.card--age--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 167px;
+}
+
+.card--age--wrapper > h2 {
+  margin: 5px 0 0 0;
+  font-size: 32px;
+}
+
+ul {
+  padding-left: 10px;
+}
+
 .card--image {
   width: 265px;
   height: 265px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   margin: 0;
+  cursor: pointer;
 }
 
 .back-arrow {
