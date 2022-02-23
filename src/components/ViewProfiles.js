@@ -82,19 +82,26 @@ const dummy = [
   },
 ]
 
-const profilesMapped = dummy.map(item => {
-  return (
-    <ProfileCard 
-      key={item.id}
-      data={item}
-    />
-  )
-})
-
 export const ViewProfiles = () => {
   const [isMoved, setIsMoved] = useState(false)
   const [index, setIndex] = useState(0);
   const slideRef = useRef();
+  const [searchCity, setSearchCity] = useState("");
+
+  const profilesMapped = dummy.filter(search => {
+    if (searchCity == "") {
+      return search
+    } else if (search.city.toLowerCase().includes(searchCity.toLowerCase())) {
+      return search
+    }
+  }).map(item => {
+    return (
+      <ProfileCard 
+        key={item.id}
+        data={item}
+      />
+    )
+  })
 
   const slideClick = (event, direction) => {
     event.stopPropagation()
@@ -111,7 +118,7 @@ export const ViewProfiles = () => {
 
   return (
     <div className='profiles--main'>
-      <SearchBar />
+      <SearchBar setSearchCity={setSearchCity} />
       <div className='profiles--wrapper'>
         {!isMoved ? null : <img 
           src={require("../images/arrow.png")}

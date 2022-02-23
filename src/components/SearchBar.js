@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export const SearchBar = () => {
-  const [searchCity, setSearchCity] = useState(null);
+export const SearchBar = (props) => {
 
   return (
     <div className="search--bar">
       <input 
         type="text"
-        onChange={event => setSearchCity(event.target.value)}
+        onChange={event => props.setSearchCity(event.target.value)}
         placeholder="Search City..."
         name="s"
         className='search--field'

@@ -70,6 +70,10 @@ html, body {
   font-size: 17px;
 }
 
+.search--field:-webkit-autofill {
+  background: transparent;
+}
+
 .search--button {
   background: transparent;
   margin-left: auto;
