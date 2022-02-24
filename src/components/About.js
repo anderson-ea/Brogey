@@ -30,20 +30,22 @@ export const About = () => {
         <input
           placeholder='"Shooter" McGavin'
           onChange={event => setName(event.target.value)}
+          maxLength={30}
         />
         <p>Profile Pic URL</p>
         <input
-          placeholder='Less data storage than uploading...'
+          placeholder='Less data storage than uploading'
           onChange={event => setPicURL(event.target.value)}
         />
         <p>Job</p>
         <input
-          placeholder='Enter occupation...'
+          placeholder='Enter Occupation'
           onChange={event => setJob(event.target.value)}
+          maxLength={30}
         />
         <p>Age</p>
         <input
-          placeholder='Enter age...'
+          placeholder='Enter Age'
           onChange={event => {
             if (event.target.value > 123) {
               return false 
@@ -54,18 +56,21 @@ export const About = () => {
         />
         <p>Handicap</p>
         <input
-          placeholder="Unless you can't count that high..."
+          placeholder="Unless you can't count that high"
           onChange={event => setHandicap(event.target.value)}
+          maxLength={30}
         />
         <p>Alcohol Consumption</p>
         <input
-          placeholder="Drinker, Doesn't Drink..."
+          placeholder="Drinker, Doesn't Drink, etc..."
           onChange={event => setDrink(event.target.value)}
+          maxLength={30}
         />
         <p>Cart or Walk</p>
         <input
-          placeholder='Cart, Walk, Either...'
+          placeholder='Cart, Walk, etc...'
           onChange={event => setCart(event.target.value)}
+          maxLength={30}
         />
       </div>
       <button
