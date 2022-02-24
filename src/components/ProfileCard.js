@@ -17,7 +17,7 @@ export const ProfileCard = (props) => {
           <h3 className='card--person--name'>{props.data.fullName}</h3>
           <p>{props.data.job}</p>
           <ul>
-            <li>Handicap +{props.data.handicap}</li>
+            <li>Handicap: +{props.data.handicap}</li>
             <li>{props.data.drinking ? "Drinker" : "Doesn't Drink"}</li>
             <li>{props.data.walking ? "Cart" : "Walk"}</li>
           </ul>

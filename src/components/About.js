@@ -56,8 +56,11 @@ export const About = () => {
         />
         <p>Handicap</p>
         <input
-          placeholder="Unless you can't count that high"
-          onChange={event => setHandicap(event.target.value)}
+          placeholder="The max is 54"
+          onChange={event => {
+            if (event.target.value > 54) {
+              return false 
+            } else setAge(event.target.value)}}
           maxLength={30}
         />
         <p>Alcohol Consumption</p>
