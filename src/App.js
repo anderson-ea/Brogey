@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { ProfilePage } from "./components/ProfilePage";
 import { ViewProfiles } from "./components/ViewProfiles";
 import { Chat } from "./components/Chat";
-// import { Signup } from "./components/Signup";
+import { About } from "./components/About";
 import useAuth, { AuthProvider } from "./hooks/useAuth";
 
 
@@ -20,6 +20,7 @@ export const App = () => {
             <Route path="chat" element={<Chat />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="login" element={<LoginScreen />} />
+            <Route path="about" element={<About />} />
           </Routes>
         </Router>
       </AuthProvider>

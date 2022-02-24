@@ -9,7 +9,7 @@ export const Navbar = () => {
       <img src={require("../images/logo.png")} alt="logo"/>
       {user &&  (
         <div className="nav--links">
-          <Link to="/chat">Chat</Link>
+          <Link to="/about">About Me</Link>
           <Link 
             className="nav--logout" 
             to="/login" 

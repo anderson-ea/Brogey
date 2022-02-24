@@ -70,10 +70,6 @@ html, body {
   font-size: 17px;
 }
 
-.search--field:-webkit-autofill {
-  background: transparent;
-}
-
 .search--button {
   background: transparent;
   margin-left: auto;
@@ -97,7 +93,7 @@ html, body {
 .profiles--main {
   background-color: rgba(0,0,0,.06);
   overflow-y: auto;
-  height: 95.2vh;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -210,4 +206,80 @@ ul {
   background-color: rgba(255, 255, 255, 0.4);
   z-index: 99;
   transform: rotate(180deg);
+}
+
+.about--container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0,0,0,.06);
+  min-height: 700px;
+}
+
+.complete {
+  margin: 20px;
+  background-color: rgba(46, 209, 46, 0.767);
+  font-weight: bold;
+  font-size: 24px;
+  border-style: none;
+  border-radius: 4px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+  letter-spacing: .07rem;
+}
+
+.button--incomplete {
+  margin: 20px;
+  background-color: rgba(71, 71, 71, 0.5);
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-style: none;
+  border-radius: 4px;
+  padding: 5px 10px 5px 10px;
+  letter-spacing: .07rem;
+}
+
+.back {
+  width : 440px;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.back > img {
+  width: 50px;
+  margin-top: 15px;
+}
+
+.about--wrapper {
+  position: relative;
+  width: 420px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.06);
+}
+
+.about--wrapper > h2 {
+  margin: 0;
+}
+
+.about--wrapper > p {
+  font-weight: bold;
+}
+
+.about--wrapper > input {
+  border: white;
+  border-radius: 4px;
+  width: 250px;
+  padding: 5px;
+  background-color: rgba(0,0,0,.03)
 }

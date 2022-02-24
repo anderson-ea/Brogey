@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithPopup, signOut } from "@firebase/auth"
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "@firebase/auth"
 import { auth } from '../firebase'
-import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext({})
 
@@ -23,8 +22,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setUser(null);
     } setLoadingInitial(false)
-    }), []
-  )
+    }), []);
 
   const logout = () => {
     setLoading(true)
@@ -36,14 +34,16 @@ export const AuthProvider = ({ children }) => {
   const signInWithGoogle = async () => {
     setLoading(true)
     const provider = new GoogleAuthProvider()
-    await signInWithPopup(auth, provider).then(async (res) => {
+    await signInWithPopup(auth, provider).then(res => console.log(res))
+      // .then(async (res) => {
       // const name = res.user.displayName
       // const email = res.user.email
       // const profilePic = res.user.photoURL
-      const { idToken, accessToken } = res
-      const credential = GoogleAuthProvider.credential(idToken, accessToken)
-      await signInWithCredential(auth, credential)
-    }).catch(err => {
+      // const { idToken, accessToken } = res
+      // const credential = GoogleAuthProvider.credential(idToken, accessToken)
+      // await signInWithCredential(auth, credential)
+    // })
+    .catch(err => {
       setError(err)
     }).finally(() => setLoading(false))
   };

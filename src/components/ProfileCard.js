@@ -1,9 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const ProfileCard = (props) => {
-  const imageClick = () => {
-    console.log("hello")
-  }
+  const navigate = useNavigate();
 
   return (
     <div className='card'>
@@ -11,7 +10,7 @@ export const ProfileCard = (props) => {
         src={props.data.photoURL} 
         className='card--image' 
         alt='profile pic'
-        onClick={imageClick}
+        onClick={() => navigate('/profile')}
       />
       <div className='card--name--container'>
         <div className='card--name'>
