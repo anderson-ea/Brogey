@@ -52,16 +52,23 @@ export const About = () => {
             } else setAge(event.target.value)}
           }
           type="number"
+          onkeypress="return event.charCode >= 48" 
+          min="1"
           value={age}
         />
         <p>Handicap</p>
         <input
           placeholder="The max is 54"
           onChange={event => {
-            if (event.target.value > 54) {
+            if (event.target.value > 54 || 
+              event.target.value < 0 ||
+              event.target.value[0] == 0
+            ) { 
               return false 
-            } else setAge(event.target.value)}}
+            } else setHandicap(event.target.value)}}
+          type='number'
           maxLength={30}
+          value={handicap}
         />
         <p>Alcohol Consumption</p>
         <input
