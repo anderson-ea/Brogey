@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth'
 
 export const LoginScreen = () => {
-  const { signInWithGoogle, logout, user } = useAuth();
+  const { signInWithGoogle, user } = useAuth();
   const navigate = useNavigate();
   
   return (

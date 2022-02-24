@@ -5,11 +5,10 @@ import { ProfilePage } from "./components/ProfilePage";
 import { ViewProfiles } from "./components/ViewProfiles";
 import { Chat } from "./components/Chat";
 import { About } from "./components/About";
-import useAuth, { AuthProvider } from "./hooks/useAuth";
+import { AuthProvider } from "./hooks/useAuth";
 
 
 export const App = () => {
-  const { user } = useAuth();
   return (
     <div>
       <AuthProvider>
