@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react'
+import { Link } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 import { ProfileCard } from './ProfileCard';
 import { SearchBar } from './SearchBar';
 
@@ -87,6 +89,7 @@ export const ViewProfiles = () => {
   const [index, setIndex] = useState(0);
   const slideRef = useRef();
   const [searchCity, setSearchCity] = useState("");
+  const { user } = useAuth();
 
   const profilesMapped = dummy.filter(search => {
     if (searchCity === "") {
@@ -127,7 +130,7 @@ export const ViewProfiles = () => {
           onClick={(event) => slideClick(event, "left")} 
         />}
         <div className="profiles--container" ref={slideRef} >
-          {profilesMapped}
+          {user ? profilesMapped : <Link to={'/login'}>You must login to view profiles</Link>}
         </div>
         <img 
           src={require("../images/arrow.png")}
