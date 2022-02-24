@@ -28,7 +28,7 @@ export const About = () => {
         <h2>General Info</h2>
         <p>Name</p>
         <input
-          placeholder='Enter what people call you...'
+          placeholder='"Shooter" McGavin'
           onChange={event => setName(event.target.value)}
         />
         <p>Profile Pic URL</p>
@@ -44,12 +44,17 @@ export const About = () => {
         <p>Age</p>
         <input
           placeholder='Enter age...'
-          onChange={event => setAge(event.target.value)}
-          maxLength={3}
+          onChange={event => {
+            if (event.target.value > 123) {
+              return false 
+            } else setAge(event.target.value)}
+          }
+          type="number"
+          value={age}
         />
         <p>Handicap</p>
         <input
-          placeholder="Most of us don't know..."
+          placeholder="Unless you can't count that high..."
           onChange={event => setHandicap(event.target.value)}
         />
         <p>Alcohol Consumption</p>
@@ -59,7 +64,7 @@ export const About = () => {
         />
         <p>Cart or Walk</p>
         <input
-          placeholder='Cart, Walk, Both...'
+          placeholder='Cart, Walk, Either...'
           onChange={event => setCart(event.target.value)}
         />
       </div>
