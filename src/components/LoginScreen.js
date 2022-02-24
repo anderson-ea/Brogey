@@ -11,7 +11,7 @@ export const LoginScreen = () => {
       <button 
         onClick={async () => {
           await signInWithGoogle();
-          console.log(user.uid);
+          console.log(user);
           navigate('/');
         }}
         className='google--signin'

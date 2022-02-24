@@ -89,11 +89,11 @@ export const ViewProfiles = () => {
   const [searchCity, setSearchCity] = useState("");
 
   const profilesMapped = dummy.filter(search => {
-    if (searchCity == "") {
+    if (searchCity === "") {
       return search
     } else if (search.city.toLowerCase().includes(searchCity.toLowerCase())) {
       return search
-    }
+    } else return null
   }).map(item => {
     return (
       <ProfileCard 

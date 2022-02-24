@@ -3,18 +3,15 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
 
 const firebaseAPIKey = process.env.REACT_APP_FIRE_API_KEY
-const mId = process.env.REACT_APP_MESSAGING_ID
-const appId = process.env.REACT_APP_APP_ID
-const measId = process.env.REACT_APP_MEASUREMENT_ID
 
 const firebaseConfig = {
   apiKey: `${firebaseAPIKey}`,
   authDomain: "brogey-7fb3a.firebaseapp.com",
   projectId: "brogey-7fb3a",
   storageBucket: "brogey-7fb3a.appspot.com",
-  messagingSenderId: `${mId}`,
-  appId: `${appId}`,
-  measurementId: `${measId}`
+  messagingSenderId: "399353807646",
+  appId: "1:399353807646:web:cc92cb7bd1ed159f2ebf0f",
+  measurementId: "G-GG0ENYJVBD"
 };
 
 const app = initializeApp(firebaseConfig);
