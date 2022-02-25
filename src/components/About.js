@@ -1,4 +1,4 @@
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../firebase'
@@ -30,7 +30,8 @@ export const About = () => {
       handicap: handicap,
       drink: drink,
       cart: cart,
-      city: city
+      city: city,
+      timestamp: serverTimestamp(),
     }).then(() => {navigate('/')}
     ).catch(error => alert(error.message))
   }
@@ -50,24 +51,26 @@ export const About = () => {
         <input
           placeholder='Less data storage than uploading'
           onChange={event => setPicURL(event.target.value)}
+          value={picURL}
         />
         <p>Job</p>
         <input
           placeholder='Enter Occupation'
           onChange={event => setJob(event.target.value)}
           maxLength={30}
+          value={job}
         />
         <p>Age</p>
         <input
           placeholder='Enter Age'
           onChange={event => {
-            if (event.target.value > 123) {
+            if (event.target.value > 123 ||
+              event.target.value < 0
+            ) {
               return false 
             } else setAge(event.target.value)}
           }
           type="number"
-          onkeypress="return event.charCode >= 48" 
-          min="1"
           value={age}
         />
         <p>Handicap</p>
@@ -89,18 +92,21 @@ export const About = () => {
           placeholder="Drinker, Doesn't Drink, etc..."
           onChange={event => setDrink(event.target.value)}
           maxLength={30}
+          value={drink}
         />
         <p>Cart or Walk</p>
         <input
           placeholder='Cart, Walk, etc...'
           onChange={event => setCart(event.target.value)}
           maxLength={30}
+          value={cart}
         />
         <p>City</p>
         <input
           placeholder='Enter City'
           onChange={event => setCity(event.target.value)}
           maxLength={30}
+          value={city}
         />
       </div>
       <button
