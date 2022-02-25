@@ -18,8 +18,8 @@ export const ProfileCard = (props) => {
           <p>{props.data.job}</p>
           <ul>
             <li>Handicap: +{props.data.handicap}</li>
-            <li>{props.data.drinking ? "Drinker" : "Doesn't Drink"}</li>
-            <li>{props.data.walking ? "Cart" : "Walk"}</li>
+            <li>{props.data.drink}</li>
+            <li>{props.data.cart}</li>
           </ul>
         </div>
         <div className='card--age--wrapper'>

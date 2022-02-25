@@ -45,7 +45,7 @@ export const ViewProfiles = () => {
       return search
     } else if (search.city.toLowerCase().includes(searchCity.toLowerCase())) {
       return search
-    } else return "No profiles"
+    }
   }).map(item => {
     return (
       <ProfileCard 
