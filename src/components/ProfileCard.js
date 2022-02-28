@@ -6,11 +6,13 @@ export const ProfileCard = (props) => {
 
   return (
     <div className='card'>
-      <img 
+      <img
         src={props.data.photoURL} 
         className='card--image' 
         alt='profile pic'
-        onClick={() => navigate('/profile')}
+        onClick={() => navigate(`/profile/${props.data.id}`, {
+          state: { data: props.data }
+        })}
       />
       <div className='card--name--container'>
         <div className='card--name'>

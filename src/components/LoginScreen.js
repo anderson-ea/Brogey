@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth'
 
 export const LoginScreen = () => {
-  const { signInWithGoogle, user } = useAuth();
+  const { signInWithGoogle} = useAuth();
   const navigate = useNavigate();
   
   return (
@@ -11,7 +11,6 @@ export const LoginScreen = () => {
       <button 
         onClick={async () => {
           await signInWithGoogle();
-          console.log(user);
           navigate('/');
         }}
         className='google--signin'

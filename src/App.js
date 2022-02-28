@@ -17,7 +17,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<ViewProfiles />} />
             <Route path="chat" element={<Chat />} />
-            <Route path="profile" element={<ProfilePage />} />
+            <Route path="profile/:id" element={<ProfilePage />} />
             <Route path="login" element={<LoginScreen />} />
             <Route path="about" element={<About />} />
           </Routes>
