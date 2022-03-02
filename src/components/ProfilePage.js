@@ -33,8 +33,8 @@ export const ProfilePage = () => {
             <h2>Bio</h2>
             <p>{state.data.bio}</p>
           </div>
-          <button className="add-friend">Add Friend</button>
         </div>
+        <button className="add-friend">Add Friend</button>
       </div>
     </div>
   )
