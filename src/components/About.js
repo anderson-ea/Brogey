@@ -12,13 +12,14 @@ export const About = () => {
   const [drink, setDrink] = useState(null)
   const [cart, setCart] = useState(null)
   const [city, setCity] = useState(null)
+  const [bio, setBio] = useState(null)
 
   const { user } = useAuth()
 
   const navigate = useNavigate();
 
   const incompleteForm = !city|| !picURL || !job || !handicap
-  || !drink || !cart || !age
+  || !drink || !cart || !age || !bio
 
   const updateProfile = () => {
     setDoc(doc(db, "users", user.uid), {
@@ -31,6 +32,7 @@ export const About = () => {
       drink: drink,
       cart: cart,
       city: city,
+      bio: bio,
       timestamp: serverTimestamp(),
     }).then(() => {navigate('/')}
     ).catch(error => alert(error.message))
@@ -108,6 +110,15 @@ export const About = () => {
           maxLength={30}
           value={city}
         />
+        <p>Bio</p>
+        <textarea
+          className='bio--form'
+          placeholder='Max 155 characters'
+          onChange={event => setBio(event.target.value)}
+          maxLength={155}
+          value={bio}
+        ></textarea>
+        <p className='required'>all fields required</p>
       </div>
       <button
         disabled={incompleteForm}

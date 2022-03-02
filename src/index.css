@@ -258,7 +258,7 @@ ul {
 .about--wrapper {
   position: relative;
   width: 420px;
-  height: 575px;
+  height: 740px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -270,6 +270,7 @@ ul {
 
 .about--wrapper > h2 {
   margin: 0;
+  padding: 5px;
 }
 
 .about--wrapper > p {
@@ -289,4 +290,76 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.profile--container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(0,0,0,.5);
+  width: 100vw;
+  height: 100vh;
+}
+
+.another--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.close--profile {
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.profile--wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  max-width: 480px;
+  height: 780px;
+  background-color: white;
+}
+
+.profile--wrapper > img {
+  width: 480px;
+  height: 480px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+.bio--form {
+  height: 90px;
+  resize: none;
+  border: white;
+  border-radius: 4px;
+  width: 250px;
+  padding: 5px;
+  background-color: rgba(0,0,0,.03);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.required {
+  font-size: 8px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+
+.bio {
+  padding: 5px;
+}
+
+.add-friend {
+  margin-top: 20px;
+  margin-left: auto;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
