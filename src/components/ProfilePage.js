@@ -23,7 +23,7 @@ export const ProfilePage = () => {
       (documentSnapshot) => {
         if (documentSnapshot.exists()) {
           // User was second to add, so create friends
-          console.log(`matched with ${friendAdded.displayName}`)
+          alert(`You matched with ${friendAdded.displayName}`)
           setDoc(doc(db, "matches", generateId(user.uid, friendAdded.id)), {
             users: {
               [user.uid] : loggedInUser,
@@ -35,13 +35,12 @@ export const ProfilePage = () => {
           navigate("/") 
         } else {
           // user was first to add friend...
-          console.log(`added ${friendAdded.displayName}`)
+          alert(`Friend request sent to ${friendAdded.displayName}`)
         }
         setDoc(doc(db, "users", user.uid, "added", friendAdded.id),
           friendAdded
         )
-        navigate("/") 
-        alert("friend request sent")
+        navigate("/")
       }
     )
   }
