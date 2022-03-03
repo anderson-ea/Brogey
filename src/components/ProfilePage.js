@@ -1,9 +1,50 @@
+import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { db } from '../firebase';
+import useAuth from '../hooks/useAuth';
 
 export const ProfilePage = () => {
   const { state } = useLocation();
+  const { user } = useAuth();
   const navigate = useNavigate();
+
+  const generateId = (id1, id2) => (id1 > id2 ? id1 + id2 : id2 + id1);
+
+  const addFriend = async () => {
+    const friendAdded = state.data
+    const loggedInUser = (
+      await getDoc(doc(db, "users", user.uid))
+    ).data();
+    console.log(friendAdded)
+    console.log(loggedInUser)
+    // Check if user already added you...
+    getDoc(doc(db, "users", friendAdded.id, "added", user.uid)).then(
+      (documentSnapshot) => {
+        if (documentSnapshot.exists()) {
+          // User was second to add, so create friends
+          console.log(`matched with ${friendAdded.displayName}`)
+          setDoc(doc(db, "matches", generateId(user.uid, friendAdded.id)), {
+            users: {
+              [user.uid] : loggedInUser,
+              [friendAdded.id]: friendAdded
+            },
+            usersMatched: [user.uid, friendAdded.id],
+            timestamp: serverTimestamp()
+          })
+          navigate("/") 
+        } else {
+          // user was first to add friend...
+          console.log(`added ${friendAdded.displayName}`)
+        }
+        setDoc(doc(db, "users", user.uid, "added", friendAdded.id),
+          friendAdded
+        )
+        navigate("/") 
+        alert("friend request sent")
+      }
+    )
+  }
 
   return (
     <div className='profile--container'>
@@ -34,7 +75,10 @@ export const ProfilePage = () => {
             <p>{state.data.bio}</p>
           </div>
         </div>
-        <button className="add-friend">Add Friend</button>
+        <button
+          className="add-friend"
+          onClick={addFriend}
+        >Add Friend</button>
       </div>
     </div>
   )
