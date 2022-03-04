@@ -25,19 +25,14 @@ export const ViewProfiles = () => {
   }, [])
 
   useEffect(() => {
-    let cards
-    const fetchCards = async () => {
-      cards = onSnapshot(collection(db, "users"), snapshot => {
-        setProfiles(snapshot.docs.filter(doc => doc.id !== user.uid)
-          .map(doc => ({
-            id: doc.id,
-            ...doc.data()
-          }))
-        )
-      })
-    }
-    fetchCards()
-    return cards
+    onSnapshot(collection(db, "users"), snapshot => {
+      setProfiles(snapshot.docs.filter(doc => doc.id !== user.uid)
+        .map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+      )
+    })
   }, [])
 
   const profilesMapped = profiles.filter(search => {

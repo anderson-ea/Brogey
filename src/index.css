@@ -378,3 +378,17 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   box-shadow: 2px 2px 2px rgba(0,0,0,.2)
 }
+
+.chat--container {
+  margin: 0;
+  background-color: rgba(0,0,0,.06);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat--box {
+  display: grid;
+}
