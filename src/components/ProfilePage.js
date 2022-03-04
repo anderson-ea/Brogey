@@ -16,8 +16,6 @@ export const ProfilePage = () => {
     const loggedInUser = (
       await getDoc(doc(db, "users", user.uid))
     ).data();
-    console.log(friendAdded)
-    console.log(loggedInUser)
     // Check if user already added you...
     getDoc(doc(db, "users", friendAdded.id, "added", user.uid)).then(
       (documentSnapshot) => {

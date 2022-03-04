@@ -1,6 +1,23 @@
-import React from 'react'
+import { onSnapshot, query, where, collection } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../hooks/useAuth';
+import { db } from '../firebase';
 
 export const Chat = () => {
+  const [matches, setMatches] = useState();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    onSnapshot(query(collection(db, "matches"),
+      where("usersMatched", "array-contains", user.uid)),
+      (snapshot) => 
+        setMatches(snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        })))
+    )
+  }, [user])
+
   return (
     <div className='chat--container'>
       <div className="chat--box">
