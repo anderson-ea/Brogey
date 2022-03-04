@@ -8,6 +8,10 @@ export const LoginScreen = () => {
   
   return (
     <div className='signin--container'>
+      <p>Here at Brogey, we use Google Accounts as our sole login. 
+        We do not want to spend a lot of time verifying identity, 
+        resetting passwords, detecting robot-login storms, 
+        and other issues. So, we let Google do that hard work.</p>
       <button 
         onClick={async () => {
           await signInWithGoogle();
