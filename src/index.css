@@ -390,8 +390,9 @@ input::-webkit-inner-spin-button {
   height: 100vh;
   width: 100vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .chat--box {
