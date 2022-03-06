@@ -13,8 +13,17 @@ export default function ChatRow({ matchDetails }) {
   }, [matchDetails, user]);
 
   return (
-    <div>
-      <p>{matchedUserInfo?.displayName}</p>
+    <div className='chat--row--container'>
+      <div className="chat--row--wrapper">
+        <img className='thumbnail'
+          src={matchedUserInfo?.photoURL} 
+          alt="profile thumbnail" 
+        />
+        <div className="chat--row--info">
+          <p className='chat--row--name'>{matchedUserInfo?.displayName}</p>
+          <p className='last-text'>Last text sent • 14h</p>
+        </div>
+      </div>
     </div>
   )
 }

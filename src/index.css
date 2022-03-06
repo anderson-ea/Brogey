@@ -230,7 +230,7 @@ ul {
   flex-direction: column;
   align-items: center;
   background-color: rgba(0,0,0,.06);
-  min-height: 700px;
+  min-height: 720px;
 }
 
 .complete {
@@ -262,18 +262,18 @@ ul {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
-  cursor: pointer;
 }
 
 .back > img {
   width: 50px;
-  margin-top: 15px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .about--wrapper {
   position: relative;
   width: 420px;
-  height: 740px;
+  height: 720px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -290,7 +290,7 @@ ul {
 
 .about--wrapper > p {
   font-weight: bold;
-  margin: 15px;
+  margin: 13px;
 }
 
 .about--wrapper > input {
@@ -397,7 +397,57 @@ input::-webkit-inner-spin-button {
 
 .chat--box {
   display: grid;
-  grid-template-columns: 200px 500px;
+  grid-template-columns: 250px 500px;
   grid-template-rows: 40px 700px;
   border: solid;
+  gap: 1px;
+  background-color: rgba(0,0,0,.4);
+}
+
+.chat--box > h4 {
+  justify-self: center;
+  align-self: center;
+  background-color: white;
+}
+
+.chat--row--container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: max-content;
+}
+
+.chat--row--wrapper {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.chat--row--wrapper:hover {
+  background-color: rgba(0,0,0,.03);
+  cursor: pointer;
+}
+
+.chat--row--name {
+  font-size: 12px;
+  margin: 1px;
+}
+
+.chat--row--info {
+  padding-left: 8px;
+}
+
+.last-text {
+  color: gray;
+  font-size: 12px;
+  margin: 1px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  overflow: hidden;
 }
