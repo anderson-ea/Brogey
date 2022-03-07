@@ -397,24 +397,28 @@ input::-webkit-inner-spin-button {
 
 .chat--box {
   display: grid;
-  grid-template-columns: 250px 500px;
+  grid-template-columns: 300px 500px;
   grid-template-rows: 40px 700px;
-  border: solid;
   gap: 1px;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0,0,0,.03);
+  border: solid rgba(0,0,0,.02)
 }
 
-.chat--box > h4 {
-  justify-self: center;
-  align-self: center;
+.chat--names--wrap {
   background-color: white;
+  display: flex;
+}
+
+.chat--names--wrap > h4 {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .chat--row--container {
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: max-content;
 }
 
 .chat--row--wrapper {
@@ -450,4 +454,8 @@ input::-webkit-inner-spin-button {
   object-fit: cover;
   position: relative;
   overflow: hidden;
+}
+
+.chat--conversation {
+  background-color: white;
 }

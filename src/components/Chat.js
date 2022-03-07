@@ -29,12 +29,16 @@ export const Chat = () => {
   return (
     <div className='chat--container'>
       <div className="chat--box">
-        <h4>{user.displayName}</h4>
-        <h4>{selectedFriend}</h4>
-        <div>
+        <div className='chat--names--wrap'>
+          <h4>{user.displayName}</h4>
+        </div>
+        <div className='chat--names--wrap'>
+          <h4>{selectedFriend}</h4>
+        </div>
+        <div className='chat--row--container'>
           {matchesMapped}
         </div>
-        <div>
+        <div className='chat--conversation'>
           <p>text</p>
           <p>text</p>
           <p>text</p>
