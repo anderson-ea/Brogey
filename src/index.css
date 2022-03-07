@@ -216,11 +216,15 @@ ul {
 }
 
 .chat--bubble {
+  margin: 20px;
   right: 0px;
   bottom: 0px;
-  padding: 30px;
+  padding: 20px;
   position: absolute;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0,0,0,.03);
 }
 
 .about--container {
@@ -231,6 +235,7 @@ ul {
   align-items: center;
   background-color: rgba(0,0,0,.06);
   min-height: 720px;
+  overflow: auto;
 }
 
 .complete {
@@ -316,6 +321,7 @@ input::-webkit-inner-spin-button {
   background-color: rgba(0,0,0,.5);
   width: 100vw;
   height: 100vh;
+  overflow: auto;
 }
 
 .another--wrapper {
@@ -390,8 +396,9 @@ input::-webkit-inner-spin-button {
   height: 100vh;
   width: 100vw;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding-top: 50px;
 }
 
@@ -401,7 +408,7 @@ input::-webkit-inner-spin-button {
   grid-template-rows: 40px 700px;
   gap: 1px;
   background-color: rgba(0,0,0,.03);
-  border: solid rgba(0,0,0,.02)
+  box-shadow:  2px 2px 2px rgba(0,0,0,.1)
 }
 
 .chat--names--wrap {
@@ -419,6 +426,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   background-color: white;
+  overflow-y: auto;
 }
 
 .chat--row--wrapper {
@@ -450,6 +458,7 @@ input::-webkit-inner-spin-button {
 .thumbnail {
   width: 50px;
   height: 50px;
+  padding-left: 5px;
   border-radius: 50%;
   object-fit: cover;
   position: relative;
@@ -458,4 +467,17 @@ input::-webkit-inner-spin-button {
 
 .chat--conversation {
   background-color: white;
+}
+
+.chat--convo--texts {
+  height: 650px;
+  overflow-y: auto;
+  flex-direction: column-reverse;
+}
+
+.chat--selected {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: rgba(0,0,0,.08);
 }

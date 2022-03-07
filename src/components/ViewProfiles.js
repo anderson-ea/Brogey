@@ -83,12 +83,14 @@ export const ViewProfiles = () => {
           onClick={(event) => slideClick(event, "right")} 
         />
       </div>
-      <img 
-        className='chat--bubble'
-        alt='chat bubble' 
-        src={require("../images/chatBubble.png")}
-        onClick={() => navigate('/chat')}
-      />
+      <div className="chat--bubble">
+        <img 
+          className='chat--bubble--img'
+          alt='chat bubble' 
+          src={require("../images/chatBubble.png")}
+          onClick={() => navigate('/chat')}
+        />
+      </div>
     </div>
   )
 }

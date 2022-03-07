@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { db } from '../firebase';
 import ChatRow from './ChatRow';
+import ChatConversation from './ChatConversation';
 
 export const Chat = () => {
   const [matches, setMatches] = useState([]);
   const { user } = useAuth();
-  const [selectedFriend, setSelectedFriend] = useState("Matt Michelet");
+  const [selectedFriend, setSelectedFriend] = useState(null);
 
   useEffect(() => {
     onSnapshot(query(collection(db, "matches"),
@@ -21,10 +22,21 @@ export const Chat = () => {
   }, [user])
 
   const matchesMapped = matches.map(match => {
-    return(
-      <ChatRow key={match.id} matchDetails={match} />
+    return (
+      <ChatRow 
+        key={match.id} 
+        matchDetails={match} 
+        setSelectedFriend={setSelectedFriend}
+        selectedFriend={selectedFriend}
+      />
     )
   })
+
+  // const matchesConversation = selectedFriend ? 
+  //   <ChatConversation key={selectedFriend.id} matchDetails={selectedFriend} /> :
+  //   null
+    
+  
 
   return (
     <div className='chat--container'>
@@ -33,16 +45,15 @@ export const Chat = () => {
           <h4>{user.displayName}</h4>
         </div>
         <div className='chat--names--wrap'>
-          <h4>{selectedFriend}</h4>
+          <h4>{selectedFriend ? selectedFriend?.displayName : "Chat"}</h4>
         </div>
         <div className='chat--row--container'>
           {matchesMapped}
         </div>
         <div className='chat--conversation'>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <input></input>
+          <div className="chat--convo--texts">
+            {/* {matchesConversation} */}
+          </div>
         </div>
       </div>
     </div>
