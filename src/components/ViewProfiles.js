@@ -29,15 +29,19 @@ export const ViewProfiles = () => {
   }, [user, navigate])
 
   useEffect(() => {
-    onSnapshot(collection(db, "users"), snapshot => {
-      setProfiles(snapshot.docs.filter(doc => doc.id !== user.uid)
-        .map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }))
-      )
-    })
-  }, [user.uid])
+    if (user === null) {
+      navigate('/login')
+    } else {
+      onSnapshot(collection(db, "users"), snapshot => {
+        setProfiles(snapshot.docs.filter(doc => doc.id !== user.uid)
+          .map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }))
+        )
+      })
+    }
+  }, [navigate, user])
 
   const profilesMapped = profiles.filter(search => {
     if (searchCity === "") {
