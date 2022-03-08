@@ -32,11 +32,9 @@ export const Chat = () => {
     )
   })
 
-  // const matchesConversation = selectedFriend ? 
-  //   <ChatConversation key={selectedFriend.id} matchDetails={selectedFriend} /> :
-  //   null
-    
-  
+  const matchesConversation = selectedFriend ? 
+    <ChatConversation key={selectedFriend.id} matchDetails={selectedFriend} /> :
+    null
 
   return (
     <div className='chat--container'>
@@ -51,9 +49,7 @@ export const Chat = () => {
           {matchesMapped}
         </div>
         <div className='chat--conversation'>
-          <div className="chat--convo--texts">
-            {/* {matchesConversation} */}
-          </div>
+          {matchesConversation}
         </div>
       </div>
     </div>
