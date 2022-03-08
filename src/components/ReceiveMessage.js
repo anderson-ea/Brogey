@@ -3,11 +3,12 @@ import React from 'react'
 export default function ReceiveMessage({ message }) {
   return (
     <div className='received--message'>
-      {/* <img 
+      <img 
         src={message.photoURL} 
         alt='pic thumbnail'
-      /> */}
-      <p>{message.message}</p>
+        className='chat--pic'
+      />
+      <p className='rcv--msg'>{message.message}</p>
     </div>
   )
 }

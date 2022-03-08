@@ -19,7 +19,7 @@ export default function ChatConversation({ matchDetails }) {
             ...doc.data(),
           }))
         )
-  ), [matchDetails, db]);
+  ), [matchDetails]);
 
   const sendMessage = () => {
     addDoc(collection(db, "matches", matchDetails.id, "messages"), {
@@ -34,7 +34,7 @@ export default function ChatConversation({ matchDetails }) {
 
   const chatMessages = messages.map(msg => {
     return (
-      msg.id === user.uid ? (
+      msg.userId === user.uid ? (
         <SendMessage key={msg.id} message={msg} />
       ) : (
         <ReceiveMessage key={msg.id} message={msg} />

@@ -1,4 +1,4 @@
-import { onSnapshot, query, where, collection, doc, getDoc } from 'firebase/firestore';
+import { onSnapshot, query, where, collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { db } from '../firebase';
@@ -8,8 +8,6 @@ import ChatConversation from './ChatConversation';
 export const Chat = () => {
   const [matches, setMatches] = useState([]);
   const { user } = useAuth();
-  // const [selectedFriend, setSelectedFriend] = useState(null);
-  // const [matchDetails, setMatchDetails] = useState(null);
   const [matchDetails, setMatchDetails] = useState({
     selectedFriend: null,
     selectedMatch: null

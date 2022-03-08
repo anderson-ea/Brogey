@@ -472,7 +472,8 @@ input::-webkit-inner-spin-button {
 .chat--convo--texts {
   height: 660px;
   overflow-y: auto;
-  /* flex-direction: column-reverse; */
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .chat--selected {
@@ -482,10 +483,43 @@ input::-webkit-inner-spin-button {
   background-color: rgba(0,0,0,.08);
 }
 
-.sent--message {
+.sent--msg--wrap {
   margin-left: auto;
 }
 
-.received-message {
+.sent--message {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  align-self: flex-start;
+  max-width: 200px;
+  font-size: 12px;
+  background-color: rgba(0,0,0,.08);
+  overflow-wrap: break-word;
+}
+
+.received--message {
   margin-right: auto;
+  display: flex;
+  width: 260px;
+}
+
+.rcv--msg {
+  margin: 5px;
+  font-size: 12px;
+  max-width: 190px;
+  padding: 10px;
+  background-color: rgba(57, 255, 57, 0.466);
+  border-radius: 5px;
+  overflow-wrap: break-word;
+}
+
+.chat--pic {
+  margin: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  overflow: hidden;
 }
