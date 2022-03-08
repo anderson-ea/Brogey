@@ -476,6 +476,35 @@ input::-webkit-inner-spin-button {
   flex-direction: column-reverse;
 }
 
+.chat--input--wrapper {
+  width: 490;
+  border: solid .5px gray;
+  border-radius: 10px;
+  margin: 5px;
+  display: flex;
+  height: 30px;
+}
+
+.chat--input {
+  border: none;
+  padding-left: 10px;
+  width: 440px;
+  border-radius: inherit;
+}
+
+.chat--input:focus {
+  outline: none;
+}
+
+.msg--button {
+  margin-left: auto;
+  background-color: rgba(57, 255, 57, 0.466);
+  border: none;
+  padding: 5px;
+  border-radius: 0 10px 10px 0;
+  font-weight: bold;
+}
+
 .chat--selected {
   display: flex;
   padding: 10px;

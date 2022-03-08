@@ -54,7 +54,7 @@ export default function ChatConversation({ matchDetails }) {
           onChange={event => setInput(event.target.value)}
           value={input}
         />
-        <button onClick={sendMessage}>Send</button>
+        <button className="msg--button" onClick={sendMessage}>Send</button>
       </div>
     </div>
   )
