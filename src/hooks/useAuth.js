@@ -4,11 +4,6 @@ import { auth } from '../firebase'
 
 const AuthContext = createContext({})
 
-// const config = {
-//   scope: ["profile", "email"],
-//   permissions: ["public_profile", "email", "gender", "location"],
-// };
-
 export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
@@ -35,14 +30,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(true)
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider).then(res => console.log(res))
-      // .then(async (res) => {
-      // const name = res.user.displayName
-      // const email = res.user.email
-      // const profilePic = res.user.photoURL
-      // const { idToken, accessToken } = res
-      // const credential = GoogleAuthProvider.credential(idToken, accessToken)
-      // await signInWithCredential(auth, credential)
-    // })
     .catch(err => {
       setError(err)
     }).finally(() => setLoading(false))

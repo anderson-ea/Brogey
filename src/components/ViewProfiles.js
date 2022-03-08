@@ -17,11 +17,15 @@ export const ViewProfiles = () => {
 
 
   useLayoutEffect(() => {
-    onSnapshot(doc(db, "users", user.uid), (snapshot) => {
-      if (!snapshot.exists()) {
-        navigate('/about');
-      }
-    })
+    if (user === null) {
+      navigate('/login')
+    } else {
+      onSnapshot(doc(db, "users", user.uid), (snapshot) => {
+        if (!snapshot.exists()) {
+          navigate('/about');
+        }
+      })
+    }
   }, [])
 
   useEffect(() => {
@@ -83,14 +87,16 @@ export const ViewProfiles = () => {
           onClick={(event) => slideClick(event, "right")} 
         />
       </div>
-      <div className="chat--bubble">
-        <img 
-          className='chat--bubble--img'
-          alt='chat bubble' 
-          src={require("../images/chatBubble.png")}
-          onClick={() => navigate('/chat')}
-        />
-      </div>
+      {user ? 
+        <div className="chat--bubble">
+          <img 
+            className='chat--bubble--img'
+            alt='chat bubble' 
+            src={require("../images/chatBubble.png")}
+            onClick={() => navigate('/chat')}
+          />
+        </div> : null
+      }
     </div>
   )
 }

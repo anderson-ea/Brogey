@@ -39,7 +39,6 @@ export const Chat = () => {
     <ChatConversation 
       key={matchDetails.selectedMatch.id} 
       matchDetails={matchDetails.selectedMatch}
-      // selectedFriend={matchDetails.selectedFriend} 
     /> :
     null
 
@@ -54,7 +53,7 @@ export const Chat = () => {
             matchDetails.selectedFriend?.displayName : "Chat"}</h4>
         </div>
         <div className='chat--row--container'>
-          {matchesMapped}
+          {matchesMapped.length > 0 ? matchesMapped : "No matches yet"}
         </div>
         <div className='chat--conversation'>
           {matchesConversation}
