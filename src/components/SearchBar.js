@@ -8,7 +8,6 @@ export const SearchBar = (props) => {
         type="text"
         onChange={event => props.setSearchCity(event.target.value)}
         placeholder="Search City..."
-        name="s"
         className='search--field'
       />
       <button type="submit" className="search--button">

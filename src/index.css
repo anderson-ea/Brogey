@@ -436,7 +436,7 @@ input::-webkit-inner-spin-button {
 }
 
 .chat--row--wrapper:hover {
-  background-color: rgba(0,0,0,.03);
+  background-color: rgba(0,0,0,.02);
   cursor: pointer;
 }
 
