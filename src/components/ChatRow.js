@@ -20,12 +20,12 @@ export default function ChatRow({ matchData, matchDetails, setMatchDetails }) {
         orderBy("timestamp", "desc")
       ), snapshot => setLastMessage(snapshot.docs[0]?.data()?.message)
     ), 
-    [matchData, db]
+    [matchData]
   );
 
   return (
     <div 
-      className={matchDetails.selectedFriend && matchDetails.selectedFriend.id == matchedUserInfo.id ? 
+      className={matchDetails.selectedFriend && matchDetails.selectedFriend.id === matchedUserInfo.id ? 
         "chat--selected" : "chat--row--wrapper"}
       onClick={() => setMatchDetails({
         selectedMatch: matchData,

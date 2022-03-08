@@ -26,7 +26,7 @@ export const ViewProfiles = () => {
         }
       })
     }
-  }, [])
+  }, [user, navigate])
 
   useEffect(() => {
     onSnapshot(collection(db, "users"), snapshot => {
@@ -37,14 +37,14 @@ export const ViewProfiles = () => {
         }))
       )
     })
-  }, [])
+  }, [user.uid])
 
   const profilesMapped = profiles.filter(search => {
     if (searchCity === "") {
       return search
     } else if (search.city.toLowerCase().includes(searchCity.toLowerCase())) {
       return search
-    }
+    } else {return null}
   }).map(item => {
     return (
       <ProfileCard 
