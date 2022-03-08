@@ -51,9 +51,10 @@ export default function ChatConversation({ matchDetails }) {
         <input
           className='chat--input'
           placeholder="Send a Message..."
-          onChange={setInput}
+          onChange={event => setInput(event.target.value)}
+          value={input}
         />
-        <button onClick={sendMessage}></button>
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   )

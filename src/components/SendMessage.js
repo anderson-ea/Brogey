@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function SendMessage() {
+export default function SendMessage({ message }) {
   return (
-    <div>SendMessage</div>
+    <div className='sent--message'>
+      <p>{message.message}</p>
+    </div>
   )
 }

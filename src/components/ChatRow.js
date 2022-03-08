@@ -2,20 +2,23 @@ import React, { useEffect, useState } from 'react'
 import useAuth from '../hooks/useAuth';
 import getMatchedUserInfo from '../lib/getMatchedUserInfo';
 
-export default function ChatRow({ matchDetails, selectedFriend, setSelectedFriend }) {
+export default function ChatRow({ matchData, matchDetails, setMatchDetails }) {
   const { user } = useAuth();
   const [matchedUserInfo, setMatchedUserInfo] = useState(null);
   const [lastMessage, setLastMessage] = useState("click to send message");
 
   useEffect(() => {
-    setMatchedUserInfo(getMatchedUserInfo(matchDetails.users, user.uid));
-  }, [matchDetails, user]);
+    setMatchedUserInfo(getMatchedUserInfo(matchData.users, user.uid));
+  }, [matchData, user]);
 
   return (
     <div 
-      className={selectedFriend && selectedFriend.id == matchedUserInfo.id ? 
+      className={matchDetails.selectedFriend && matchDetails.selectedFriend.id == matchedUserInfo.id ? 
         "chat--selected" : "chat--row--wrapper"}
-      onClick={() => setSelectedFriend(matchedUserInfo)}  
+      onClick={() => setMatchDetails({
+        selectedMatch: matchData,
+        selectedFriend: matchedUserInfo
+      })}  
     >
       <img className='thumbnail'
         src={matchedUserInfo?.photoURL} 

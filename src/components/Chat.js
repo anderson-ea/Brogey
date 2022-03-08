@@ -8,7 +8,12 @@ import ChatConversation from './ChatConversation';
 export const Chat = () => {
   const [matches, setMatches] = useState([]);
   const { user } = useAuth();
-  const [selectedFriend, setSelectedFriend] = useState(null);
+  // const [selectedFriend, setSelectedFriend] = useState(null);
+  // const [matchDetails, setMatchDetails] = useState(null);
+  const [matchDetails, setMatchDetails] = useState({
+    selectedFriend: null,
+    selectedMatch: null
+  })
 
   useEffect(() => {
     onSnapshot(query(collection(db, "matches"),
@@ -25,15 +30,19 @@ export const Chat = () => {
     return (
       <ChatRow 
         key={match.id} 
-        matchDetails={match} 
-        setSelectedFriend={setSelectedFriend}
-        selectedFriend={selectedFriend}
+        matchData={match}
+        matchDetails={matchDetails} 
+        setMatchDetails={setMatchDetails}
       />
     )
   })
 
-  const matchesConversation = selectedFriend ? 
-    <ChatConversation key={selectedFriend.id} matchDetails={selectedFriend} /> :
+  const matchesConversation = matchDetails.selectedMatch ? 
+    <ChatConversation 
+      key={matchDetails.selectedMatch.id} 
+      matchDetails={matchDetails.selectedMatch}
+      // selectedFriend={matchDetails.selectedFriend} 
+    /> :
     null
 
   return (
@@ -43,7 +52,8 @@ export const Chat = () => {
           <h4>{user.displayName}</h4>
         </div>
         <div className='chat--names--wrap'>
-          <h4>{selectedFriend ? selectedFriend?.displayName : "Chat"}</h4>
+          <h4>{matchDetails.selectedFriend ? 
+            matchDetails.selectedFriend?.displayName : "Chat"}</h4>
         </div>
         <div className='chat--row--container'>
           {matchesMapped}
