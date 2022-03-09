@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider()
     await signInWithPopup(auth, provider).then(res => console.log(res))
     .catch(err => {
-      alert(error)
+      setError(err)
     }).finally(() => setLoading(false))
   };
 
