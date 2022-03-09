@@ -19,9 +19,9 @@ export const ProfileCard = (props) => {
           <h3 className='card--person--name'>{props.data.displayName}</h3>
           <p>{props.data.job}</p>
           <ul>
-            <li>Handicap: +{props.data.handicap}</li>
-            <li>{props.data.drink}</li>
-            <li>{props.data.cart}</li>
+            <li><span role="img" aria-label="handicap">⛳</span>Handicap: +{props.data.handicap}</li>
+            <li><span role="img" aria-label="beer">🍺</span>{props.data.drink}</li>
+            <li><span role="img" aria-label="cart">🛺</span>{props.data.cart}</li>
           </ul>
         </div>
         <div className='card--age--wrapper'>

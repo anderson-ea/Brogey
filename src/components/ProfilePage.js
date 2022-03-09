@@ -57,9 +57,9 @@ export const ProfilePage = () => {
               <h3 className='card--person--name'>{state.data.displayName}</h3>
               <p>{state.data.job}</p>
               <ul>
-                <li>Handicap: +{state.data.handicap}</li>
-                <li>{state.data.drink}</li>
-                <li>{state.data.cart}</li>
+                <li><span role="img" aria-label="handicap">⛳</span>Handicap: +{state.data.handicap}</li>
+                <li><span role="img" aria-label="beer">🍺</span>{state.data.drink}</li>
+                <li><span role="img" aria-label="cart">🛺</span>{state.data.cart}</li>
               </ul>
             </div>
             <div className='card--age--wrapper'>
