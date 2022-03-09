@@ -147,6 +147,7 @@ html, body {
   margin: 10px 0 0 0;
   align-items: flex-start;
   max-width: 180px;
+  padding-left: 5px;
 }
 
 .card--person--name {
@@ -166,6 +167,7 @@ html, body {
   justify-content: space-between;
   height: 140px;
   max-width: 140px;
+  padding-right: 5px;
 }
 
 .card--age--wrapper > h2 {
@@ -375,7 +377,17 @@ input::-webkit-inner-spin-button {
 }
 
 .bio {
-  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bio > h2 {
+  padding-top: 5px;
+  margin-bottom: 0;
+}
+
+.bio > p {
+  margin-top: 5px;
 }
 
 .add-friend {
@@ -431,7 +443,7 @@ input::-webkit-inner-spin-button {
 
 .chat--row--wrapper {
   display: flex;
-  padding: 10px;
+  padding: 8px;
   align-items: center;
 }
 
@@ -443,22 +455,32 @@ input::-webkit-inner-spin-button {
 .chat--row--name {
   font-size: 12px;
   margin: 1px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 220px;
+  height: 1.2em; 
+  white-space: nowrap;
 }
 
 .chat--row--info {
   padding-left: 8px;
+  width: 230px;
 }
 
 .last-text {
   color: gray;
   font-size: 12px;
   margin: 1px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 220px;
+  height: 1.2em; 
+  white-space: nowrap;
 }
 
 .thumbnail {
   width: 50px;
   height: 50px;
-  padding-left: 5px;
   border-radius: 50%;
   object-fit: cover;
   position: relative;
