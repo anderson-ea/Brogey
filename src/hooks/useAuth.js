@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithCredential, signOut } from "@firebase/auth"
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "@firebase/auth"
 import { auth } from '../firebase'
 
 const AuthContext = createContext({})
@@ -29,17 +29,9 @@ export const AuthProvider = ({ children }) => {
   const signInWithGoogle = async () => {
     setLoading(true)
     const provider = new GoogleAuthProvider()
-    await signInWithPopup(auth, provider)
-      .then(async (res) => {
-      // const name = res.user.displayName
-      // const email = res.user.email
-      // const profilePic = res.user.photoURL
-      const { idToken, accessToken } = res
-      const credential = GoogleAuthProvider.credential(idToken, accessToken)
-      await signInWithCredential(auth, credential)
-    })
+    await signInWithPopup(auth, provider).then(res => console.log(res))
     .catch(err => {
-      setError(err)
+      alert(error)
     }).finally(() => setLoading(false))
   };
 
