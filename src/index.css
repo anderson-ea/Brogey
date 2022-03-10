@@ -248,6 +248,7 @@ ul {
 
 .complete {
   margin: 20px;
+  margin-bottom: 100px;
   background-color: rgba(46, 209, 46, 0.767);
   font-weight: bold;
   font-size: 24px;
@@ -260,6 +261,7 @@ ul {
 
 .button--incomplete {
   margin: 20px;
+  margin-bottom: 100px;
   background-color: rgba(71, 71, 71, 0.5);
   color: white;
   font-weight: bold;
@@ -398,6 +400,7 @@ input::-webkit-inner-spin-button {
 
 .add-friend {
   margin-top: 20px;
+  margin-bottom: 100px;
   margin-left: auto;
   padding: 5px;
   font-size: 14px;
