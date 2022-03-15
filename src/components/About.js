@@ -5,14 +5,14 @@ import { db } from '../firebase'
 import useAuth from '../hooks/useAuth'
 
 export const About = () => {
-  const [picURL, setPicURL] = useState(null)
-  const [job, setJob] = useState(null)
-  const [age, setAge] = useState(null)
-  const [handicap, setHandicap] = useState(null)
-  const [drink, setDrink] = useState(null)
-  const [cart, setCart] = useState(null)
-  const [city, setCity] = useState(null)
-  const [bio, setBio] = useState(null)
+  const [picURL, setPicURL] = useState("")
+  const [job, setJob] = useState("")
+  const [age, setAge] = useState("")
+  const [handicap, setHandicap] = useState("")
+  const [drink, setDrink] = useState("")
+  const [cart, setCart] = useState("")
+  const [city, setCity] = useState("")
+  const [bio, setBio] = useState("")
 
   const { user } = useAuth()
 
