@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
     } setLoadingInitial(false)
     }), []);
 
+  // logs out user
   const logout = () => {
     setLoading(true)
     signOut(auth)
@@ -50,6 +51,7 @@ export const AuthProvider = ({ children }) => {
   )
 }
 
+// useAuth is hook to pull user data throughout almost every component
 export default function useAuth() {
   return useContext(AuthContext)
 }

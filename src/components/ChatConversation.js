@@ -10,6 +10,7 @@ export default function ChatConversation({ matchDetails }) {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
 
+  // sets message state to messages between users
   useEffect(() => onSnapshot(query(
     collection(db, "matches", matchDetails.id, "messages"), 
       orderBy("timestamp", "desc")), (snapshot) => 
@@ -21,6 +22,7 @@ export default function ChatConversation({ matchDetails }) {
         )
   ), [matchDetails]);
 
+  // places message in firestore
   const sendMessage = () => {
     addDoc(collection(db, "matches", matchDetails.id, "messages"), {
       timestamp: serverTimestamp(),
@@ -32,6 +34,7 @@ export default function ChatConversation({ matchDetails }) {
     setInput("");
   };
 
+  // displays messages based on sent or received
   const chatMessages = messages.map(msg => {
     return (
       msg.userId === user.uid ? (
