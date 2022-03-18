@@ -4,6 +4,7 @@ import { auth } from '../firebase'
 
 const AuthContext = createContext({})
 
+// context provider for user authentication
 export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }
 
+  // sign in to google method
   const signInWithGoogle = async () => {
     setLoading(true)
     const provider = new GoogleAuthProvider()
