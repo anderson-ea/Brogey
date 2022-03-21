@@ -38,7 +38,7 @@ export default function ChatRow({ matchData, matchDetails, setMatchDetails }) {
       />
       <div className="chat--row--info">
         <p className='chat--row--name'>{matchedUserInfo?.displayName}</p>
-        <p className='last-text'>
+        <p className='last-text' data-testid="message">
           {lastMessage == null ? "click to say hi" : lastMessage}
         </p>
       </div>

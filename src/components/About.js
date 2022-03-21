@@ -124,6 +124,7 @@ export const About = () => {
         disabled={incompleteForm}
         className={!incompleteForm ? 'complete' : 'button--incomplete'}
         onClick={updateProfile}
+        data-testid="submit"
       >Submit</button>
     </div>
   )
