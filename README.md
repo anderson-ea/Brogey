@@ -2,7 +2,7 @@
 Sick of playing golf solo or getting paired with randoms? Then try Brogey today! Brogey is a social media web application created to help users find golf partners near their location. [Click here to join](https://brogey-7fb3a.web.app/).
 
 ## Description
-Brogey was created using React for the frontend, and Firebase for the backend. After reading [this](https://www.reddit.com/r/golf/comments/qnrq4q/tinder_but_like_for_golfing/) post on Reddit's r/golf, I decided I would give the project a shot. As of right now, Brogey is a web application with mobile responsiveness. Brogey Mobile created on React Native is coming soon.
+Brogey was created using React for the frontend, and Firebase for the backend. After reading [this](https://www.reddit.com/r/golf/comments/qnrq4q/tinder_but_like_for_golfing/) post on Reddit's r/golf, I decided I would give the project a shot. As of right now, Brogey is a web application with mobile responsiveness. Brogey Mobile created as a phone app on React Native is coming soon.
 
 ## Instructions
 Brogey uses Google as the sole sign in method. This is to help ensure less issues come up such as verifying identity, resetting passwords, detecting robot-login storms, etc.
