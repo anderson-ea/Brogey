@@ -5,11 +5,6 @@ export const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  // const linkStyle = {
-  //   textDecoration: 'none',
-  //   color: 'black' 
-  // }
-
   return (
     <div className="nav--container">
       <img 
@@ -26,7 +21,6 @@ export const Navbar = () => {
           <Link 
             className="nav--logout" 
             to="/login"
-            // style={linkStyle}
             onClick={logout}
           >
             Logout
