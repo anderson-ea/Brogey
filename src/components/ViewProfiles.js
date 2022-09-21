@@ -43,6 +43,13 @@ export const ViewProfiles = () => {
     }
   }, [navigate, user])
 
+  useEffect(() => {
+    if (isMoved === true) {
+      setIndex(0)
+      slideRef.current.style.transform = `translateX(0)`
+    }
+  }, [isMoved, searchCity])
+
   const profilesMapped = profiles.filter(search => {
     if (searchCity === "") {
       return search
