@@ -548,6 +548,10 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
 }
 
+.msg--button:hover {
+  cursor: pointer;
+}
+
 .chat--selected {
   display: flex;
   padding: 10px;
