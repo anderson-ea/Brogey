@@ -22,12 +22,24 @@ html, body {
 
 .nav--links {
   margin-left: auto;
-  padding-right: 50px;
+  padding: 12px 50px;
   text-decoration: none;
 }
 
-.nav--logout {
-  padding-left: 25px;
+.nav--about, .nav--logout {
+  border-radius: 25px;
+  padding: 11px 25px;
+  text-decoration: none;
+}
+
+.nav--about:hover {
+  background-color: green;
+  color: white;
+}
+
+.nav--logout:hover {
+  background-color: green;
+  color: white;
 }
 
 .signin--container {

@@ -5,10 +5,10 @@ export const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const linkStyle = {
-    textDecoration: 'none',
-    color: 'black' 
-  }
+  // const linkStyle = {
+  //   textDecoration: 'none',
+  //   color: 'black' 
+  // }
 
   return (
     <div className="nav--container">
@@ -20,12 +20,13 @@ export const Navbar = () => {
       {user &&  (
         <div className="nav--links">
           <Link 
+            className="nav--about"
             to="/about" 
-            style={linkStyle}>About Me</Link>
+            >About Me</Link>
           <Link 
             className="nav--logout" 
             to="/login"
-            style={linkStyle}
+            // style={linkStyle}
             onClick={logout}
           >
             Logout
