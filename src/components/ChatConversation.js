@@ -45,6 +45,12 @@ export default function ChatConversation({ matchDetails }) {
     )
   })
 
+  const handleKeyUp = event => {
+    if (event.key === 'Enter') {
+      sendMessage()
+    }
+  }
+
   return (
     <div>
       <div className='chat--convo--texts'>
@@ -55,6 +61,7 @@ export default function ChatConversation({ matchDetails }) {
           className='chat--input'
           placeholder="Send a Message..."
           onChange={event => setInput(event.target.value)}
+          onKeyUp={handleKeyUp}
           value={input}
         />
         <button className="msg--button" onClick={sendMessage}>Send</button>
