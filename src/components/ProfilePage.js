@@ -55,7 +55,7 @@ export const ProfilePage = () => {
 
   return (
     <div className='profile--container'>
-      {addFriendModal ? <div className="blanket"></div>: null}
+      {addFriendModal && <div className="blanket"></div>}
       <div className="another--wrapper">
         <button 
           className="close--profile"
@@ -88,14 +88,14 @@ export const ProfilePage = () => {
           onClick={addFriendHandler}
         >Add Friend</button>
       </div>
-      {addFriendModal ? 
+      {addFriendModal && 
       <div className="add--friend--modal">
         <p className="add-friend--text">{addFriendModal ? `Are you sure you want to add ${state.data.displayName}?`: `${state.data.displayName} added.`}</p>
         <div className="friend-options">
           <button className="cancel--add-friend" onClick={cancelFriendHandler}>Cancel</button>
           <button className="confirm--add-friend" onClick={addFriend}>Confirm</button>
         </div>
-      </div> : null 
+      </div> 
       }
     </div>
   )
