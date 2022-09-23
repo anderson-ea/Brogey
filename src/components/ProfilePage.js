@@ -62,7 +62,7 @@ export const ProfilePage = () => {
           onClick={() => navigate(-1)}
         >X</button>
         <div className="profile--wrapper">
-          <img src={state.data.photoURL} alt='profile pic'/>
+          <img className="prof--img" src={state.data.photoURL} alt='profile pic'/>
           <div className='card--name--container'>
             <div className='card--name'>
               <h3 className='card--person--name'>{state.data.displayName}</h3>
@@ -90,7 +90,12 @@ export const ProfilePage = () => {
       </div>
       {addFriendModal && 
       <div className="add--friend--modal">
-        <p className="add-friend--text">{addFriendModal ? `Are you sure you want to add ${state.data.displayName}?`: `${state.data.displayName} added.`}</p>
+        <p className="add-friend--text">
+          {addFriendModal ? 
+            `Are you sure you want to add ${state.data.displayName}?`: 
+            `${state.data.displayName} added.`
+          }
+        </p>
         <div className="friend-options">
           <button className="cancel--add-friend" onClick={cancelFriendHandler}>Cancel</button>
           <button className="confirm--add-friend" onClick={addFriend}>Confirm</button>

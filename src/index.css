@@ -371,7 +371,7 @@ input::-webkit-inner-spin-button {
   box-shadow: 2px 2px 2px rgba(0,0,0,.2)
 }
 
-.profile--wrapper > img {
+.prof--img {
   width: 480px;
   height: 480px;
   border-radius: 10px 10px 0 0;
@@ -654,4 +654,25 @@ input::-webkit-inner-spin-button {
   display: flex;
   padding: 10px;
   justify-content: flex-end;
+}
+
+@media (max-height: 810px) {
+  .search--bar {
+    margin: 20px auto 5px auto;
+    transition: ease all .5s;
+  }
+  .chat--bubble {
+    padding: 10px;
+    transition: ease all .5s;
+  }
+  .chat--bubble--img {
+    width: 25px;
+    transition: ease all .5s;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile--wrapper, .prof--img {
+    width: 380px;
+  }
 }
