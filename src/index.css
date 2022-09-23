@@ -30,6 +30,7 @@ html, body {
   border-radius: 25px;
   padding: 11px 25px;
   text-decoration: none;
+  color: black;
 }
 
 .nav--about:hover {
@@ -598,4 +599,59 @@ input::-webkit-inner-spin-button {
   object-fit: cover;
   position: relative;
   overflow: hidden;
+}
+
+.blanket {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.add--friend--modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  height: 100px;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px rgba(0,0,0,.3);
+}
+
+.add-friend--text {
+  color: white;
+  padding-left: 5px;
+}
+
+.cancel--add-friend {
+  background: none;
+  border: none;
+  color: white;
+  margin-right: 5px;
+  border-radius: 1px;
+  padding: 3px;
+}
+
+.confirm--add-friend {
+  border: none;
+  border-radius: 1px;
+  padding: 3px;
+}
+
+.confirm--add-friend:hover, .cancel--add-friend:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.69);
+  color: white;
+  border: none;
+}
+
+.friend-options {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
 }

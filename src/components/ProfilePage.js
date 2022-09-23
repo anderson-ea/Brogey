@@ -1,5 +1,6 @@
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import React from 'react'
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { db } from '../firebase';
 import useAuth from '../hooks/useAuth';
@@ -7,6 +8,7 @@ import useAuth from '../hooks/useAuth';
 export const ProfilePage = () => {
   const { state } = useLocation();
   const { user } = useAuth();
+  const [addFriendModal, setAddFriendModal] = useState(false);
   const navigate = useNavigate();
 
   const generateId = (id1, id2) => (id1 > id2 ? id1 + id2 : id2 + id1);
@@ -43,8 +45,17 @@ export const ProfilePage = () => {
     )
   }
 
+  const addFriendHandler = () => {
+    setAddFriendModal(true)
+  }
+
+  const cancelFriendHandler = () => {
+    setAddFriendModal(false)
+  }
+
   return (
     <div className='profile--container'>
+      {addFriendModal && <div className="blanket"></div>}
       <div className="another--wrapper">
         <button 
           className="close--profile"
@@ -74,9 +85,18 @@ export const ProfilePage = () => {
         </div>
         <button
           className="add-friend"
-          onClick={addFriend}
+          onClick={addFriendHandler}
         >Add Friend</button>
       </div>
+      {addFriendModal && 
+      <div className="add--friend--modal">
+        <p className="add-friend--text">{addFriendModal ? `Are you sure you want to add ${state.data.displayName}?`: `${state.data.displayName} added.`}</p>
+        <div className="friend-options">
+          <button className="cancel--add-friend" onClick={cancelFriendHandler}>Cancel</button>
+          <button className="confirm--add-friend" onClick={addFriend}>Confirm</button>
+        </div>
+      </div> 
+      }
     </div>
   )
 }
